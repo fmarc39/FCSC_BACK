@@ -4,8 +4,9 @@ DROP TABLE IF EXISTS "users" CASCADE;
 
 CREATE TABLE IF NOT EXISTS "users" (
     "id" SERIAL PRIMARY KEY,
-    "email" TEXT NOT NULL,
-    "password" TEXT NOT NULL
+    "username" varchar(50) NOT NULL,
+    "email" varchar(100) NOT NULL,
+    "password" varchar(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS "clients" (
@@ -21,5 +22,8 @@ CREATE TABLE IF NOT EXISTS "clients" (
     "city" TEXT NOT NULL,
     "SIREN" INTEGER NOT NULL
 );
+
+
+INSERT INTO "users" ("username", "email", "password") VALUES ('yvivant', 'yvivant@gmail.com', 'vivant');
 
 COMMIT;
