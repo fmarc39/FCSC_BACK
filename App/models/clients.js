@@ -39,6 +39,10 @@ Clients.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    subscription: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
   },
   {
     sequelize,

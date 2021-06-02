@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS "clients" (
     "email" TEXT NOT NULL,
     "adress" TEXT NOT NULL,
     "zip_code" TEXT NOT NULL,
-    "city" TEXT NOT NULL
+    "city" TEXT NOT NULL,
+    "subscription" TEXT
 );
 
 CREATE TABLE IF NOT EXISTS "comments" (
@@ -41,19 +42,17 @@ CREATE TABLE IF NOT EXISTS "payments" (
 
 
 INSERT INTO "users" ("username", "email", "password") VALUES ('yvivant', 'yvivant@gmail.com', 'vivant');
+INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city", "subscription")
+VALUES ('Paul', 'Ricard', 'Ricard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude', 'ok' );
 INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
-VALUES ('Paul', 'Picard', 'Picard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
+VALUES ('Bill', 'Gates', 'Microsoft', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
 INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
-VALUES ('Paul', 'Picard', 'Picard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
+VALUES ('Elon', 'Musk', 'Tesla', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
 INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
-VALUES ('Paul', 'Picard', 'Picard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
+VALUES ('Yoann', 'Vivant', 'Pigeon.com', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
 INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
-VALUES ('Paul', 'Picard', 'Picard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
-INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
-VALUES ('Paul', 'Picard', 'Picard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
-INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
-VALUES ('Paul', 'Picard', 'Picard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
-INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
-VALUES ('Paul', 'Picard', 'Picard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
+VALUES ('Karim', 'Benzema', 'Sex-tape.fr', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
+
+
 
 COMMIT;

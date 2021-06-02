@@ -38,6 +38,7 @@ const clientController = {
       adress: adress,
       zip_code: zipCode,
       city,
+      subscription: "",
     })
       .then((client) => {
         response.json({ succes: true, client });
@@ -78,6 +79,44 @@ const clientController = {
     }).then((comment) => {
       response.json({ succes: true, comment, id });
     });
+  },
+  editClient: (request, response) => {
+    const {
+      client_id,
+      first_name,
+      last_name,
+      commercial_name,
+      fix_phone,
+      cel_phone,
+      editMail,
+      editAdress,
+      editCity,
+      editZipCode,
+    } = request.body;
+    Clients.update(
+      {
+        first_name,
+        last_name,
+        commercial_name,
+        fix_phone,
+        cel_phone,
+        email: editMail,
+        adress: editAdress,
+        city: editCity,
+        zip_code: editZipCode,
+      },
+      { returning: true, where: { id: client_id } }
+    )
+      .then((client) => {
+        console.log(client);
+        response.json({ succes: true, client });
+      })
+      .catch((error) => {
+        response.status(500).json({
+          succes: false,
+          error: error.message,
+        });
+      });
   },
   getFilterClient: (request, response) => {
     const { value, filter } = request.query;
@@ -128,6 +167,18 @@ const clientController = {
           error: error.message,
         });
       });
+  },
+  addSubsciption: (request, response) => {
+    const { value, clientId } = request.body;
+    Clients.update(
+      {
+        subscription: value,
+      },
+      { returning: true, where: { id: clientId } }
+    ).then((client) => {
+      console.log(client);
+      response.json({ succes: true, client });
+    });
   },
   addPayment: (request, response) => {},
 };
