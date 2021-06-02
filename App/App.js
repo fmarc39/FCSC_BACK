@@ -29,7 +29,7 @@ app.use(bodySanitizer);
 // app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 });
