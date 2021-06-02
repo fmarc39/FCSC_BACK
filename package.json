@@ -16,7 +16,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "App/app.js",
+    "start": "nodemon App/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
