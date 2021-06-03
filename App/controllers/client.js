@@ -171,6 +171,9 @@ const clientController = {
         });
       });
   },
+  deleteSub: (request, response) => {
+    console.log(request.params);
+  },
   addSubsciption: (request, response) => {
     const { value, clientId } = request.body;
     Clients.update(
