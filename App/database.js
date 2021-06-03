@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize("postgresql://fcsc:fcsc@localhost/fcsc", {
+const sequelize = new Sequelize(process.env.DB_URL, {
   define: {
     timestamps: false,
     createdAt: "created_at",
