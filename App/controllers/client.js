@@ -172,10 +172,9 @@ const clientController = {
       });
   },
   deleteSub: (request, response) => {
-    console.log(request.params);
     Clients.update(
       { subscription: null },
-      { returning: true, where: { id: clientId } }
+      { returning: true, where: { id: request.params.id } }
     );
   },
   addSubsciption: (request, response) => {
