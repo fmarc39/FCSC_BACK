@@ -17,7 +17,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node App/app.js",
+    "start": "node App/App.js",
     "dev": "nodemon App/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
