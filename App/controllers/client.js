@@ -80,6 +80,9 @@ const clientController = {
       response.json({ succes: true, comment, id });
     });
   },
+  home: (request, response) => {
+    response.json({ succes: true, text: "bienvenue" });
+  },
   editClient: (request, response) => {
     const {
       client_id,

@@ -16,5 +16,6 @@ router.delete("/deleteComment/:id", clientController.deleteOneComment);
 router.get("/getFilterList", clientController.getFilterClient);
 router.delete("/deleteClient/:clientId", clientController.deleteOneClient);
 router.patch("/addSubscription", clientController.addSubsciption);
+router.get("/", clientController.home);
 
 module.exports = router;
