@@ -175,7 +175,16 @@ const clientController = {
     Clients.update(
       { subscription: null },
       { returning: true, where: { id: request.params.id } }
-    );
+    )
+      .then((client) => {
+        response.json({ succes: true, client });
+      })
+      .catch((error) => {
+        response.status(500).json({
+          succes: false,
+          error: error.message,
+        });
+      });
   },
   addSubsciption: (request, response) => {
     const { value, clientId } = request.body;
@@ -184,10 +193,16 @@ const clientController = {
         subscription: value,
       },
       { returning: true, where: { id: clientId } }
-    ).then((client) => {
-      console.log(client);
-      response.json({ succes: true, client });
-    });
+    )
+      .then((client) => {
+        response.json({ succes: true, client });
+      })
+      .catch((error) => {
+        response.status(500).json({
+          succes: false,
+          error: error.message,
+        });
+      });
   },
   addPayment: (request, response) => {},
 };
