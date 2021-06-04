@@ -1,7 +1,7 @@
 const { request, response } = require("express");
 const { Sequelize } = require("sequelize");
 const { Client } = require("pg");
-const { Clients, Comments } = require("../models");
+const { Clients, Comments, Payments } = require("../models");
 const Op = Sequelize.Op;
 
 const clientController = {
@@ -205,7 +205,14 @@ const clientController = {
       });
   },
   addPayment: (request, response) => {
-    console.log(request.body);
+    const { amount, clientId, date } = request.body;
+    Payments.create({
+      client_id: clientId,
+      date,
+      amount,
+    }).then((payments) => {
+      response.json({ succes: true, payments });
+    });
   },
 };
 
