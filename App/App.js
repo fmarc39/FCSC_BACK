@@ -16,7 +16,7 @@ const app = express();
 // si on met l'option origin : '*' alors n'importe quel site peut executer dans le navigateur une requete vers mon API
 app.use(
   cors({
-    origin: "*",
+    origin: ["http://localhost:3000", "https://rugby-fcsc.web.app/home"],
   })
 );
 // IL FAUT ABSOLUMENT DECODER LE BODY AVANT LE ROUTEUR
