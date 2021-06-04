@@ -204,7 +204,9 @@ const clientController = {
         });
       });
   },
-  addPayment: (request, response) => {},
+  addPayment: (request, response) => {
+    console.log(request.body);
+  },
 };
 
 module.exports = clientController;
