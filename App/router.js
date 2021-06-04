@@ -11,7 +11,7 @@ router.patch("/editClient", clientController.editClient);
 router.get("/clients", clientController.getClient);
 router.post("/addComment", clientController.addComment);
 router.post("/addPayment", clientController.addPayment);
-router.get("/client/:id", authJwt, clientController.getOneClient);
+router.get("/client/:id", clientController.getOneClient);
 router.delete("/deleteComment/:id", clientController.deleteOneComment);
 router.get("/getFilterList", clientController.getFilterClient);
 router.delete("/deleteClient/:clientId", clientController.deleteOneClient);
