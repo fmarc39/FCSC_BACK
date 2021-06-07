@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const sequelize = new Sequelize(process.env.DB_URL, {
   define: {
     timestamps: false,
     require: true,
@@ -8,10 +8,10 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     updatedAt: "updated_at",
   },
   dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
+    // ssl: {
+    //   require: true,
+    //   rejectUnauthorized: false,
+    // },
   },
 });
 

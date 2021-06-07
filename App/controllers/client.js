@@ -17,17 +17,7 @@ const clientController = {
       zipCode,
       city,
     } = request.body;
-    console.log(
-      firstName,
-      lastName,
-      commercialName,
-      fixPhone,
-      celPhone,
-      email,
-      adress,
-      zipCode,
-      city
-    );
+
     Clients.create({
       first_name: firstName,
       last_name: lastName,
@@ -111,7 +101,6 @@ const clientController = {
       { returning: true, where: { id: client_id } }
     )
       .then((client) => {
-        console.log(client);
         response.json({ succes: true, client });
       })
       .catch((error) => {

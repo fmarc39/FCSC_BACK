@@ -11,27 +11,29 @@ const userController = {
       where: {
         email,
       },
-    }).then((user) => {
-      if (!user) {
-        return response.status(404).send({ message: "Email Not Found" });
-      }
+    })
+      .then((user) => {
+        if (!user) {
+          return response.status(404).send({ message: "Email Not Found" });
+        }
 
-      const token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400,
-      });
+        const token = jwt.sign({ id: user.id }, config.secret, {
+          expiresIn: 86400,
+        });
 
-      response
-        .status(200)
-        .send({
+        response.status(200).send({
           id: user.id,
           email: user.email,
           username: user.username,
           accessToken: token,
-        })
-        .catch((error) => {
-          response.status(500).send({ message: error.message });
         });
-    });
+      })
+      .catch((error) => {
+        response.status(500).json({
+          succes: false,
+          error: error.message,
+        });
+      });
   },
 };
 
