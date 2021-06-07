@@ -81,7 +81,6 @@ const clientController = {
     });
   },
   home: (request, response) => {
-    console.log("ok");
     response.json({ succes: true, text: "bienvenue" });
   },
   editClient: (request, response) => {

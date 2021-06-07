@@ -5,7 +5,7 @@ const clientController = require("./controllers/client");
 const authJwt = require("./middlewares/authJwt");
 
 router.post("/login", userController.login);
-router.post("/home", authJwt, userController.login);
+router.post("/home", authJwt(), userController.login);
 router.post("/addClient", clientController.addClient);
 router.patch("/editClient", clientController.editClient);
 router.get("/clients", clientController.getClient);
