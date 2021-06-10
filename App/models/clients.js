@@ -43,6 +43,14 @@ Clients.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    debt: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    sub_price: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
   },
   {
     sequelize,

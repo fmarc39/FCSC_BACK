@@ -70,6 +70,16 @@ const clientController = {
       response.json({ succes: true, comment, id });
     });
   },
+  deleteOnePayment: (request, response) => {
+    const { id } = request.params;
+    Payments.destroy({
+      where: {
+        id,
+      },
+    }).then((payment) => {
+      response.json({ succes: true, payment, id });
+    });
+  },
   home: (request, response) => {
     response.json({ succes: true, text: "bienvenue" });
   },
@@ -161,9 +171,12 @@ const clientController = {
       });
   },
   deleteSub: (request, response) => {
+    const body = request.body;
+    console.log(body.client_id);
+
     Clients.update(
       { subscription: null },
-      { returning: true, where: { id: request.params.id } }
+      { returning: true, where: { id: body.client_id } }
     )
       .then((client) => {
         response.json({ succes: true, client });
@@ -176,10 +189,12 @@ const clientController = {
       });
   },
   addSubsciption: (request, response) => {
-    const { value, clientId } = request.body;
+    const { value, clientId, amount } = request.body;
+    console.log(amount);
     Clients.update(
       {
         subscription: value,
+        sub_price: amount,
       },
       { returning: true, where: { id: clientId } }
     )

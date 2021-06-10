@@ -23,7 +23,9 @@ CREATE TABLE IF NOT EXISTS "clients" (
     "adress" TEXT NOT NULL,
     "zip_code" TEXT NOT NULL,
     "city" TEXT NOT NULL,
-    "subscription" TEXT
+    "subscription" TEXT,
+    "debt" TEXT,
+    "sub_price" TEXT
 );
 
 CREATE TABLE IF NOT EXISTS "comments" (
@@ -42,8 +44,8 @@ CREATE TABLE IF NOT EXISTS "payments" (
 
 
 INSERT INTO "users" ("username", "email", "password") VALUES ('yvivant', 'yvivant@gmail.com', 'vivant');
-INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city", "subscription")
-VALUES ('Paul', 'Ricard', 'Ricard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude', 'ok' );
+INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city", "subscription", "debt", "sub_price")
+VALUES ('Paul', 'Ricard', 'Ricard', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude', 'ok', '1500', '2000');
 INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
 VALUES ('Bill', 'Gates', 'Microsoft', 0384450203, 0635116059, 'francoismarc2@gmail.com', '10 rue des ecoles', 39200, 'Saint Claude');
 INSERT INTO "clients" ("first_name", "last_name", "commercial_name", "fix_phone", "cel_phone", "email", "adress", "zip_code", "city")
