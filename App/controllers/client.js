@@ -172,14 +172,31 @@ const clientController = {
   },
   deleteSub: (request, response) => {
     const body = request.body;
-    console.log(body.client_id);
 
     Clients.update(
-      { subscription: null },
+      { subscription: null, debt: null, sub_price: null },
       { returning: true, where: { id: body.client_id } }
     )
       .then((client) => {
         response.json({ succes: true, client });
+      })
+      .catch((error) => {
+        response.status(500).json({
+          succes: false,
+          error: error.message,
+        });
+      });
+  },
+  updateDebt: (request, response) => {
+    const { debt, clientId } = request.body;
+    Clients.update(
+      {
+        debt,
+      },
+      { returning: true, where: { id: clientId } }
+    )
+      .then((debt) => {
+        response.json({ succes: true, debt });
       })
       .catch((error) => {
         response.status(500).json({
@@ -195,6 +212,7 @@ const clientController = {
       {
         subscription: value,
         sub_price: amount,
+        debt: amount,
       },
       { returning: true, where: { id: clientId } }
     )

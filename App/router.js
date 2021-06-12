@@ -9,6 +9,7 @@ router.post("/home", authJwt, userController.login);
 router.post("/addClient", authJwt, clientController.addClient);
 router.patch("/editClient", authJwt, clientController.editClient);
 router.patch("/deleteSub", authJwt, clientController.deleteSub);
+router.patch("/updateDebt", authJwt, clientController.updateDebt);
 router.get("/clients", authJwt, clientController.getClient);
 router.post("/addComment", authJwt, clientController.addComment);
 router.post("/addPayment", authJwt, clientController.addPayment);
