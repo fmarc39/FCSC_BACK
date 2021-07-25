@@ -4,7 +4,6 @@ const userController = require("./controllers/user");
 const clientController = require("./controllers/client");
 const authJwt = require("./middlewares/authJwt");
 
-
 // Je mets en place mes routes et mes méthodes de controller
 // Routes en post
 router.post("/login", userController.login);
