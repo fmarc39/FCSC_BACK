@@ -40,6 +40,7 @@ const clientController = {
         });
       });
   },
+  // méthode pour récuperer tous les clients
   getClient: (request, response) => {
     Clients.findAll().then((clients) => {
       if (!clients) {
@@ -226,15 +227,23 @@ const clientController = {
         });
       });
   },
+  // Méthode pour ajouter un paiement un BDD
   addPayment: (request, response) => {
     const { amount, clientId, date } = request.body;
     Payments.create({
       client_id: clientId,
       date,
       amount,
-    }).then((payments) => {
-      response.json({ succes: true, payments });
-    });
+    })
+      .then((payments) => {
+        response.json({ succes: true, payments });
+      })
+      .catch((error) => {
+        response.status(500).json({
+          succes: false,
+          error: error.message,
+        });
+      });
   },
 };
 
