@@ -16,7 +16,11 @@ const app = express();
 // Mise en en place des CORS
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://fcsc-club.web.app/"],
+    origin: [
+      "http://localhost:3000",
+      "https://fcsc-club.web.app/",
+      "https://fcsc-club.firebaseapp.com/",
+    ],
   })
 );
 // Middleware qui va parser notre body en Json
