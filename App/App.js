@@ -17,7 +17,6 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
       "https://fcsc-club.web.app/",
       "https://fcsc-club.firebaseapp.com/",
     ],
