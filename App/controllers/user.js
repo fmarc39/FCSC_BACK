@@ -1,7 +1,6 @@
 const { request, response } = require("express");
 const Users = require("../models/users");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
 const config = require("../auth.config");
 
 const userController = {
@@ -14,7 +13,17 @@ const userController = {
     })
       .then((user) => {
         if (!user) {
-          return response.status(404).send({ message: "Email Not Found" });
+          return response
+            .status(404)
+            .send({ succes: false, message: "Email Not Found", code: "mail" });
+        }
+
+        if (user.password !== password) {
+          return response.status(404).send({
+            succes: false,
+            message: "Wrong password",
+            code: "password",
+          });
         }
 
         const token = jwt.sign({ id: user.id }, config.secret, {

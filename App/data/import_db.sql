@@ -43,6 +43,6 @@ CREATE TABLE IF NOT EXISTS "payments" (
 );
 
 
-INSERT INTO "users" ("username", "email", "password") VALUES ('yvivant', 'yvivant@gmail.com', 'vivant');
+INSERT INTO "users" ("username", "email", "password") VALUES ('yvivant', 'commercial.fcsc@gmail.com', 'serger39');
 
 COMMIT;
