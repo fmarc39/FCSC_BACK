@@ -46,11 +46,17 @@ const clientController = {
       if (!clients) {
         throw new Error("No clients");
       }
-
-      response.json({
-        succes: true,
-        clients,
-      });
+      response
+        .json({
+          succes: true,
+          clients,
+        })
+        .catch((error) => {
+          response.status(500).json({
+            succes: false,
+            error: error.message,
+          });
+        });
     });
   },
   getOneClient: (request, response) => {
