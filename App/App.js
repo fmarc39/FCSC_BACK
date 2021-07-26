@@ -16,7 +16,7 @@ const app = express();
 // Mise en en place des CORS
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://rugby-fcsc.web.app"],
+    origin: ["http://localhost:3000", "https://fcsc-club.web.app/"],
   })
 );
 // Middleware qui va parser notre body en Json
