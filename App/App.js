@@ -14,14 +14,15 @@ const cors = require("cors");
 const app = express();
 
 // Mise en en place des CORS
-// app.use(
-//   cors({
-//     origin: [
-//       "https://fcsc-club.web.app/",
-//       "https://fcsc-club.firebaseapp.com/",
-//     ],
-//   })
-// );
+app.use(
+  cors({
+    origin: "*",
+    // origin: [
+    //   // "https://fcsc-club.web.app/",
+    //   // "https://fcsc-club.firebaseapp.com/",
+    // ],
+  })
+);
 // Middleware qui va parser notre body en Json
 app.use(express.json());
 app.use(bodyParser.none());
